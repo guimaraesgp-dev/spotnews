@@ -1,0 +1,26 @@
+{% load static %}  {# Carrega arquivos estáticos para estilos #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">  {# Referência ao arquivo CSS estático #}
+  <title>Formulário para Nova Categoria</title>  {# Título da página #}
+  <header class="header">
+    <ul class="header-links">
+      <a href="{% url 'home-page' %}">Home</a>  {# Link para a página inicial #}
+      <a href="{% url 'categories-form' %}">Cadastrar Categorias</a>  {# Link para o próprio formulário de categoria #}
+    </ul>
+  </header>
+</head>
+<br>  {# Linhas em branco para espaçamento #}
+<br>
+<br>
+<body>
+  <form method="post" action="{% url 'categories-form' %}">
+    {% csrf_token %}  {# Adiciona token CSRF para proteção contra CSRF #}
+    {{ form }}  {# Renderiza o formulário com todos os campos e widgets #}
+    <button type="submit">Salvar</button>  {# Botão de submissão do formulário #}
+  </form>
+</body>
+</html>
