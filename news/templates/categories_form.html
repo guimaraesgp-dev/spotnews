@@ -1,26 +1,26 @@
-{% load static %}  {# Carrega arquivos estáticos para estilos #}
+{% load static %}  
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">  {# Referência ao arquivo CSS estático #}
-  <title>Formulário para Nova Categoria</title>  {# Título da página #}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+  <title>Formulário para Nova Categoria</title>  
   <header class="header">
     <ul class="header-links">
-      <a href="{% url 'home-page' %}">Home</a>  {# Link para a página inicial #}
-      <a href="{% url 'categories-form' %}">Cadastrar Categorias</a>  {# Link para o próprio formulário de categoria #}
+      <a href="{% url 'home-page' %}">Home</a>  
+      <a href="{% url 'categories-form' %}">Cadastrar Categorias</a>  
     </ul>
   </header>
 </head>
-<br>  {# Linhas em branco para espaçamento #}
+<br> 
 <br>
 <br>
 <body>
   <form method="post" action="{% url 'categories-form' %}">
-    {% csrf_token %}  {# Adiciona token CSRF para proteção contra CSRF #}
-    {{ form }}  {# Renderiza o formulário com todos os campos e widgets #}
-    <button type="submit">Salvar</button>  {# Botão de submissão do formulário #}
+    {% csrf_token %}  
+    {{ form }}  
+    <button type="submit">Salvar</button>  
   </form>
 </body>
 </html>
